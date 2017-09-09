@@ -3,16 +3,11 @@ import "jest";
 import * as React from "react";
 import TagsCard from "./TagsCard";
 
-import { Card, List, Input, Button } from "semantic-ui-react";
+import { List } from "semantic-ui-react";
 
 
 describe("TagsCard component", () => {
-  let LinkStub: any;
 
-  beforeEach(() => {
-    LinkStub = (props: LinkProps) =>
-      <div>{props.children}</div>;
-  });
 
   it("should list all the tags", () => {
     const tags = [
