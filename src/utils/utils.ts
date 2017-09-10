@@ -12,7 +12,7 @@ export class Utils {
     }
     static formatTitle(title: string) {
         if (title.length >= 24) {
-            return title.substr(0, 24) + "...";
+            return title.substr(0, 24) + '...';
         } else {
             return title;
         }
@@ -30,11 +30,11 @@ export class Utils {
         }
         return totalseconds;
     }
-    static getVidInfo(e: any): Promise<any> {
+    static getVidInfo(e: IVideo): Promise<IVideo> {
 
-        let part = "snippet,contentDetails,statistics,status";
-        let apiKey = "AIzaSyDPNBTCUqkueynn2pbfhXwUFfDm9owhVJI";
-        let id = e.fieldValue.replace("https://www.youtube.com/watch?v=", "");
+        let part = 'snippet,contentDetails,statistics,status';
+        let apiKey = 'AIzaSyDPNBTCUqkueynn2pbfhXwUFfDm9owhVJI';
+        let id = e.fieldValue.replace('https://www.youtube.com/watch?v=', '');
         return fetch(`https://www.googleapis.com/youtube/v3/videos?id=${id}&key=${apiKey}&part=${part}`)
             .then((data) => data.json()).then((data: any) => {
                 if (data.items && data.items.length) {

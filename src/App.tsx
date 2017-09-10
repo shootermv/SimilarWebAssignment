@@ -6,19 +6,23 @@ import { Utils } from "./utils/utils";
 import PlayerTitle from "./PlayerTitle";
 import VideosCard from "./VideosCard";
 import { Grid, Container, Segment, Card } from "semantic-ui-react";
+import IVideo from "./interfaces";
 
-
-
-class App extends React.Component<any, any> {
+interface State {
+  videos: IVideo[];
+  player: any;
+  currentVideo?: IVideo;
+}
+class App extends React.Component<any, State> {
   constructor(props: any) {
     super(props);
     this.state = {
-      currentVideo: null,
+      currentVideo: undefined,
       player: null,
       videos: [],
     };
   }
-  addTag(e: any) {
+  addTag(e: IVideo) {
     Utils.getVidInfo(e).then((vid) => {
       this.setState({ videos: this.state.videos.concat(vid) });
       if (!this.state.currentVideo) {
@@ -28,9 +32,9 @@ class App extends React.Component<any, any> {
   }
 
   removeVideo(idx: number) {
-    if (this.state.videos.indexOf(this.state.currentVideo) === idx) {
+    if (this.state.currentVideo && this.state.videos.indexOf(this.state.currentVideo) === idx) {
       this.state.videos.splice(idx, 1);
-      this.setState({ currentVideo: null, videos: this.state.videos });
+      this.setState({ currentVideo: undefined, videos: this.state.videos });
     } else {
       this.state.videos.splice(idx, 1);
       this.setState({ videos: this.state.videos });
@@ -48,14 +52,19 @@ class App extends React.Component<any, any> {
     if (!vids.length) { return; }
     setTimeout(() => this.state.player.playVideo(), 100);
   }
-
+  onSortEnded(vids: IVideo[]) {
+    this.setState({
+      currentVideo: vids[0],
+      videos: vids,
+    });
+  }
   onReady(event: any) {
     this.setState({
       player: event.target,
     });
   }
 
-  renderPlayer(currentVideo: any) {
+  renderPlayer(currentVideo?: IVideo) {
     const opts = {
       height: "390",
       playerVars: { // https://developers.google.com/youtube/player_parameters
@@ -90,6 +99,7 @@ class App extends React.Component<any, any> {
                 videos={videos}
                 tag={this.state.currentVideo && this.state.currentVideo.fieldValue}
                 onTagAdded={(e) => this.addTag(e)}
+                onSortEnded={(e) => this.onSortEnded(e)}
                 onVideoRemoved={(e, idx) => this.removeVideo(idx)} />
             </div>
             <div style={{ width: 600 }}>

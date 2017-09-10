@@ -19,7 +19,8 @@ describe("VideosCard component", () => {
     const wrapper = shallow(<VideosCard
       videos={tags} tag={tags[0].fieldValue}
       onTagAdded={() => console.log("")}
-      onVideoRemoved={() => console.log("")} />);
+      onVideoRemoved={() => console.log("")}
+      onSortEnded={() => console.log("")} />);
 
     expect(wrapper.find(List.Item)).toHaveLength(3);
   });
@@ -34,7 +35,8 @@ describe("VideosCard component", () => {
     const wrapper = shallow(<VideosCard
       videos={tags} tag={tags[0].fieldValue}
       onTagAdded={() => console.log("")}
-      onVideoRemoved={() => console.log("")} />);
+      onVideoRemoved={() => console.log("")}
+      onSortEnded={() => console.log("")} />);
 
     expect(wrapper).toMatchSnapshot();
   });

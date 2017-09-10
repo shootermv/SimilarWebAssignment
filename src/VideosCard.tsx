@@ -1,14 +1,16 @@
 import * as React from 'react';
 import { Card, List, Input, Button } from 'semantic-ui-react';
-import {/*SortableContainer, SortableElement,*/ arrayMove } from 'react-sortable-hoc';
+import { SortableContainer, SortableElement, arrayMove } from 'react-sortable-hoc';
 import IVideo from "./interfaces";
 import { Utils } from "./utils/utils";
+
 
 interface VideosCardProps extends React.HTMLProps<HTMLDivElement> {
   videos: IVideo[];
   tag?: string;
-  onTagAdded(e: any): void;
+  onTagAdded(e: IVideo): void;
   onVideoRemoved(e: any, idx: number): void;
+  onSortEnded(e: IVideo[]): void;
 }
 interface State {
   videos: IVideo[];
@@ -29,6 +31,7 @@ export default class VideosCard extends React.Component<VideosCardProps, State> 
     this.setState({
       videos: arrayMove(this.state.videos, oldIndex, newIndex),
     } as State);
+    this.props.onSortEnded(this.state.videos);
   }
 
   handleKeyDown(e: any) {
@@ -45,9 +48,44 @@ export default class VideosCard extends React.Component<VideosCardProps, State> 
     this.inpt.value = '';
     this.props.onTagAdded({ fieldValue: this.state.textInput, title: this.state.textInput });
   }
-  removeVideo(e: any, idx: number) {
-    this.props.onVideoRemoved(e, idx);
+  removeVideo(idx: number) {
+    console.log('IDX', idx)
+    this.props.onVideoRemoved({}, idx);
   }
+  shouldCancelStart(e: any) {
+    // Prevent sorting from being triggered if target is input or button
+    if (e.target.tagName === 'I') {
+      return true; // Return true to cancel sorting
+    }
+    return false;
+  }
+  renderSortableList(videos: IVideo[]) {
+    const SortableItem = SortableElement(({ index, value, onRemove }: any) => {
+      const isActive = value.fieldValue === this.props.tag;
+      const activeStyle = {
+        color: 'blue',
+        fontWeight: '700',
+      };
+      return (
+        <List.Item as="span" key={value.fieldValue}>
+          <List.Icon name="remove" onClick={(e: any) => onRemove(index)} />
+          <List.Content style={isActive ? activeStyle : null} >
+            {value.title} {value.duration}
+          </List.Content>
+        </List.Item>);
+    });
+    const SortableList = SortableContainer(({ items, onSortEnd, onRemove }: any) => {
+      return (
+        <List>
+          {items.map((value: any, index: number) => (
+            <SortableItem key={`item-${index}`} index={index} value={value} onRemove={(idx: number) => onRemove(index)} />
+          ))}
+        </List>
+      );
+    });
+    return (<SortableList items={videos} onSortEnd={this.onSortEnd} onRemove={(index: number) => this.removeVideo(index)} shouldCancelStart={this.shouldCancelStart} />)
+  }
+
   render() {
     const { videos } = this.state;
 
@@ -63,23 +101,7 @@ export default class VideosCard extends React.Component<VideosCardProps, State> 
           </Card.Header>
         </Card.Content>
         <Card.Content>
-          <List>
-            {videos.map((video: any, idx: number) => {
-              const isActive = video.fieldValue === this.props.tag;
-              const activeStyle = {
-                color: 'blue',
-                fontWeight: '700',
-              };
-              return (
-                <List.Item as="span" key={video.fieldValue}>
-                  <List.Icon name="remove" onClick={(e: any) => this.removeVideo(e, idx)} />
-                  <List.Content style={isActive ? activeStyle : null} >
-                    {video.title} {video.duration}
-                  </List.Content>
-                </List.Item>
-              );
-            })}
-          </List>
+          {this.renderSortableList(videos)}
         </Card.Content>
       </Card>
     );
