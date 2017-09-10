@@ -3,7 +3,7 @@ import './App.css';
 
 import YouTube from "react-youtube";
 import { Utils } from "./utils/utils";
-import BlogTitle from "./BlogTitle";
+import PlayerTitle from "./PlayerTitle";
 import TagsCard from "./TagsCard";
 import { Grid, Container, Segment, Card } from "semantic-ui-react";
 
@@ -81,7 +81,7 @@ class App extends React.Component<any, any> {
     const videos = this.state.videos;
     return (
       <Container>
-        <BlogTitle />
+        <PlayerTitle />
         {/* Content */}
         <Segment vertical>
           <Grid padded style={{ justifyContent: "space-around" }}>
