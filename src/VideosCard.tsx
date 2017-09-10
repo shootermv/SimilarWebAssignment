@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Card, List, Input, Button } from "semantic-ui-react";
-
+import {/*SortableContainer, SortableElement,*/ arrayMove } from 'react-sortable-hoc';
 
 interface VideosCardProps extends React.HTMLProps<HTMLDivElement> {
   tags: any[];
@@ -14,8 +14,18 @@ export default class VideosCard extends React.Component<VideosCardProps, any> {
   public inpt: any;
   constructor(props: VideosCardProps) {
     super(props);
-    this.state = { textInput: "" };
+    this.state = { textInput: "", videos: props.tags };
   }
+  componentWillReceiveProps(nextProps: any) {
+    this.setState({ videos: nextProps.tags });
+  }
+
+  onSortEnd = ({ oldIndex, newIndex }: any) => {
+    this.setState({
+      videos: arrayMove(this.state.videos, oldIndex, newIndex),
+    });
+  };
+
   handleKeyDown(e: any) {
     if (e.keyCode === 13) { // Enter key
       this.addVideo(null);
@@ -29,9 +39,11 @@ export default class VideosCard extends React.Component<VideosCardProps, any> {
     if (this.inpt.value.indexOf("www.youtube.com/watch?v=") === -1) {
       return;
     } // not valid string
-    if (this.props.tags.filter((t) => this.inpt.value === t.fieldValue).length) {
+    if (this.state.videos.filter((t: any) => this.inpt.value === t.fieldValue).length) {
       return;
-    } // same video again    
+    } // same video again  
+
+
     this.inpt.value = "";
     this.props.onTagAdded({ fieldValue: this.state.textInput, title: this.state.textInput });
   }
@@ -39,7 +51,7 @@ export default class VideosCard extends React.Component<VideosCardProps, any> {
     this.props.onVideoRemoved(e, idx);
   }
   render() {
-    const tags = this.props.tags;
+    const { videos } = this.state;
 
     return (
       <Card>
@@ -54,17 +66,17 @@ export default class VideosCard extends React.Component<VideosCardProps, any> {
         </Card.Content>
         <Card.Content>
           <List>
-            {tags.map((tag, idx) => {
-              const isActive = tag.fieldValue === this.props.tag;
+            {videos.map((video: any, idx: number) => {
+              const isActive = video.fieldValue === this.props.tag;
               const activeStyle = {
                 color: "blue",
                 fontWeight: "700",
               };
               return (
-                <List.Item as="span" key={tag.fieldValue}>
+                <List.Item as="span" key={video.fieldValue}>
                   <List.Icon name="remove" onClick={(e: any) => this.removeVideo(e, idx)} />
                   <List.Content style={isActive ? activeStyle : null} >
-                    {tag.title} {tag.duration}
+                    {video.title} {video.duration}
                   </List.Content>
                 </List.Item>
               );

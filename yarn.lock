@@ -2,6 +2,17 @@
 # yarn lockfile v1
 
 
+"@types/cheerio@*":
+  version "0.22.2"
+  resolved "https://registry.yarnpkg.com/@types/cheerio/-/cheerio-0.22.2.tgz#539625874bc856086ad491c2fdc9b10c05ae308e"
+
+"@types/enzyme@^2.8.7":
+  version "2.8.7"
+  resolved "https://registry.yarnpkg.com/@types/enzyme/-/enzyme-2.8.7.tgz#999e0f220412342020a8279ff3d7eed2b2b4b618"
+  dependencies:
+    "@types/cheerio" "*"
+    "@types/react" "*"
+
 "@types/history@*":
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/@types/history/-/history-4.6.0.tgz#093d67ed780d889c9543f6dca24ebee0b6b9fc45"
@@ -25,6 +36,12 @@
   resolved "https://registry.yarnpkg.com/@types/react-router/-/react-router-4.0.15.tgz#be8aaefc20afd968a5dbcffcf09060e6c2e8746e"
   dependencies:
     "@types/history" "*"
+    "@types/react" "*"
+
+"@types/react-sortable-hoc@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@types/react-sortable-hoc/-/react-sortable-hoc-0.6.0.tgz#0c568c14dd71a28c9b9e7ec81ecca766499c2c0b"
+  dependencies:
     "@types/react" "*"
 
 "@types/react-test-renderer@^15.5.4":
@@ -459,7 +476,7 @@ babel-runtime@6.23.0:
     core-js "^2.4.0"
     regenerator-runtime "^0.10.0"
 
-babel-runtime@^6.22.0, babel-runtime@^6.25.0, babel-runtime@^6.26.0:
+babel-runtime@^6.11.6, babel-runtime@^6.22.0, babel-runtime@^6.25.0, babel-runtime@^6.26.0:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
   dependencies:
@@ -3241,7 +3258,7 @@ lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
 
-"lodash@>=3.5 <5", lodash@^4.14.0, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.3.0:
+"lodash@>=3.5 <5", lodash@^4.12.0, lodash@^4.14.0, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.3.0:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
@@ -4276,7 +4293,7 @@ promise@7.1.1, promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.10, prop-types@^15.5.3, prop-types@^15.5.4:
+prop-types@^15.5.10, prop-types@^15.5.3, prop-types@^15.5.4, prop-types@^15.5.7:
   version "15.5.10"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.10.tgz#2797dfc3126182e3a95e3dfbb2e893ddd7456154"
   dependencies:
@@ -4475,6 +4492,15 @@ react-scripts-ts@2.6.0:
     whatwg-fetch "2.0.3"
   optionalDependencies:
     fsevents "1.1.2"
+
+react-sortable-hoc@^0.6.7:
+  version "0.6.7"
+  resolved "https://registry.yarnpkg.com/react-sortable-hoc/-/react-sortable-hoc-0.6.7.tgz#e30d247bc36dd5a605430c331ac9cb50a5fa72a6"
+  dependencies:
+    babel-runtime "^6.11.6"
+    invariant "^2.2.1"
+    lodash "^4.12.0"
+    prop-types "^15.5.7"
 
 react-test-renderer@^15.6.1:
   version "15.6.1"
