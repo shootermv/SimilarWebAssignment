@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Card, List, Input, Button } from 'semantic-ui-react';
 import {/*SortableContainer, SortableElement,*/ arrayMove } from 'react-sortable-hoc';
 import IVideo from "./interfaces";
+import { Utils } from "./utils/utils";
 
 interface VideosCardProps extends React.HTMLProps<HTMLDivElement> {
   videos: IVideo[];
@@ -40,14 +41,7 @@ export default class VideosCard extends React.Component<VideosCardProps, State> 
     this.setState({ textInput: value });
   }
   addVideo(e: any) {
-    if (this.inpt.value.indexOf('www.youtube.com/watch?v=') === -1) {
-      return;
-    } // not valid string
-    if (this.state.videos.filter((t: any) => this.inpt.value === t.fieldValue).length) {
-      return;
-    } // same video again  
-
-
+    if (!Utils.Validate(this.inpt.value, this.state.videos)) { return; }
     this.inpt.value = '';
     this.props.onTagAdded({ fieldValue: this.state.textInput, title: this.state.textInput });
   }

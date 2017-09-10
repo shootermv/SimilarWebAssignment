@@ -1,5 +1,15 @@
+import IVideo from '../interfaces';
 export class Utils {
+    static Validate(title: string, videos: IVideo[]): boolean {
+        if (title.indexOf('www.youtube.com/watch?v=') === -1) {
+            return false;
+        } // not valid string
+        if (videos.filter((t: any) => title === t.fieldValue).length) {
+            return false;
+        } // same video again
 
+        return true;
+    }
     static formatTitle(title: string) {
         if (title.length >= 24) {
             return title.substr(0, 24) + "...";
