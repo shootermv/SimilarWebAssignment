@@ -1,5 +1,5 @@
-import * as React from "react";
-import { Card, List, Input, Button } from "semantic-ui-react";
+import * as React from 'react';
+import { Card, List, Input, Button } from 'semantic-ui-react';
 import {/*SortableContainer, SortableElement,*/ arrayMove } from 'react-sortable-hoc';
 
 interface VideosCardProps extends React.HTMLProps<HTMLDivElement> {
@@ -14,7 +14,7 @@ export default class VideosCard extends React.Component<VideosCardProps, any> {
   public inpt: any;
   constructor(props: VideosCardProps) {
     super(props);
-    this.state = { textInput: "", videos: props.tags };
+    this.state = { textInput: '', videos: props.tags };
   }
   componentWillReceiveProps(nextProps: any) {
     this.setState({ videos: nextProps.tags });
@@ -24,7 +24,7 @@ export default class VideosCard extends React.Component<VideosCardProps, any> {
     this.setState({
       videos: arrayMove(this.state.videos, oldIndex, newIndex),
     });
-  };
+  }
 
   handleKeyDown(e: any) {
     if (e.keyCode === 13) { // Enter key
@@ -36,7 +36,7 @@ export default class VideosCard extends React.Component<VideosCardProps, any> {
     this.setState({ textInput: value });
   }
   addVideo(e: any) {
-    if (this.inpt.value.indexOf("www.youtube.com/watch?v=") === -1) {
+    if (this.inpt.value.indexOf('www.youtube.com/watch?v=') === -1) {
       return;
     } // not valid string
     if (this.state.videos.filter((t: any) => this.inpt.value === t.fieldValue).length) {
@@ -44,7 +44,7 @@ export default class VideosCard extends React.Component<VideosCardProps, any> {
     } // same video again  
 
 
-    this.inpt.value = "";
+    this.inpt.value = '';
     this.props.onTagAdded({ fieldValue: this.state.textInput, title: this.state.textInput });
   }
   removeVideo(e: any, idx: number) {
@@ -56,7 +56,7 @@ export default class VideosCard extends React.Component<VideosCardProps, any> {
     return (
       <Card>
         <Card.Content>
-          <Card.Header style={{ display: "flex" }}>
+          <Card.Header style={{ display: 'flex' }}>
             <Input placeholder="place here url of video..."
               name="textInput" onChange={(e) => this.handleChange(e)} onKeyDown={(e: any) => this.handleKeyDown(e)}>
               <input ref={(inpt) => this.inpt = inpt} />
@@ -69,8 +69,8 @@ export default class VideosCard extends React.Component<VideosCardProps, any> {
             {videos.map((video: any, idx: number) => {
               const isActive = video.fieldValue === this.props.tag;
               const activeStyle = {
-                color: "blue",
-                fontWeight: "700",
+                color: 'blue',
+                fontWeight: '700',
               };
               return (
                 <List.Item as="span" key={video.fieldValue}>

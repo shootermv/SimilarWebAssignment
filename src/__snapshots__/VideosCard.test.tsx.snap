@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TagsCard component should have on tag active 1`] = `
+exports[`VideosCard component should have on tag active 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -164,7 +164,7 @@ ShallowWrapper {
       "_calledComponentWillUnmount": false,
       "_compositeType": 0,
       "_context": Object {},
-      "_currentElement": <TagsCard
+      "_currentElement": <VideosCard
         onTagAdded={[Function]}
         onVideoRemoved={[Function]}
         tag={
@@ -193,9 +193,10 @@ ShallowWrapper {
       "_debugID": 3,
       "_hostContainerInfo": null,
       "_hostParent": null,
-      "_instance": TagsCard {
+      "_instance": VideosCard {
         "_reactInternalInstance": [Circular],
         "context": Object {},
+        "onSortEnd": [Function],
         "props": Object {
           "onTagAdded": [Function],
           "onVideoRemoved": [Function],
@@ -221,6 +222,20 @@ ShallowWrapper {
         "refs": Object {},
         "state": Object {
           "textInput": "",
+          "videos": Array [
+            Object {
+              "fieldValue": "tag01",
+              "totalCount": 2,
+            },
+            Object {
+              "fieldValue": "tag02",
+              "totalCount": 4,
+            },
+            Object {
+              "fieldValue": "tag03",
+              "totalCount": 6,
+            },
+          ],
         },
         "updater": Object {
           "enqueueCallback": [Function],
@@ -400,7 +415,7 @@ ShallowWrapper {
     "render": [Function],
   },
   "root": [Circular],
-  "unrendered": <TagsCard
+  "unrendered": <VideosCard
     onTagAdded={[Function]}
     onVideoRemoved={[Function]}
     tag={
