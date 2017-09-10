@@ -1,29 +1,33 @@
 import * as React from 'react';
 import { Card, List, Input, Button } from 'semantic-ui-react';
 import {/*SortableContainer, SortableElement,*/ arrayMove } from 'react-sortable-hoc';
+import IVideo from "./interfaces";
 
 interface VideosCardProps extends React.HTMLProps<HTMLDivElement> {
-  tags: any[];
+  videos: IVideo[];
   tag?: string;
   onTagAdded(e: any): void;
   onVideoRemoved(e: any, idx: number): void;
 }
-
-export default class VideosCard extends React.Component<VideosCardProps, any> {
+interface State {
+  videos: IVideo[];
+  textInput: string;
+}
+export default class VideosCard extends React.Component<VideosCardProps, State> {
   public state: any;
   public inpt: any;
   constructor(props: VideosCardProps) {
     super(props);
-    this.state = { textInput: '', videos: props.tags };
+    this.state = { textInput: '', videos: props.videos };
   }
   componentWillReceiveProps(nextProps: any) {
-    this.setState({ videos: nextProps.tags });
+    this.setState({ videos: nextProps.videos });
   }
 
   onSortEnd = ({ oldIndex, newIndex }: any) => {
     this.setState({
       videos: arrayMove(this.state.videos, oldIndex, newIndex),
-    });
+    } as State);
   }
 
   handleKeyDown(e: any) {

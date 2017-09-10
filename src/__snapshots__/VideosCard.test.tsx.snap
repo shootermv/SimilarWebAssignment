@@ -48,9 +48,16 @@ ShallowWrapper {
                     onClick={[Function]}
                 />
                 <ListContent
-                    style={null}
+                    style={
+                        Object {
+                            "color": "blue",
+                            "fontWeight": "700",
+                          }
+                    }
                 >
+                    Curse Of Black Pearl
                      
+                    1
                 </ListContent>
             </ListItem>
             <ListItem
@@ -63,7 +70,9 @@ ShallowWrapper {
                 <ListContent
                     style={null}
                 >
+                    Sleepy Hollow
                      
+                    2
                 </ListContent>
             </ListItem>
             <ListItem
@@ -76,7 +85,9 @@ ShallowWrapper {
                 <ListContent
                     style={null}
                 >
+                    Eduward Scissorhands
                      
+                    16
                 </ListContent>
             </ListItem>
         </List>
@@ -123,9 +134,16 @@ ShallowWrapper {
                               onClick={[Function]}
                         />
                         <ListContent
-                              style={null}
+                              style={
+                                    Object {
+                                          "color": "blue",
+                                          "fontWeight": "700",
+                                        }
+                              }
                         >
+                              Curse Of Black Pearl
                                
+                              1
                         </ListContent>
                   </ListItem>
                   <ListItem
@@ -138,7 +156,9 @@ ShallowWrapper {
                         <ListContent
                               style={null}
                         >
+                              Sleepy Hollow
                                
+                              2
                         </ListContent>
                   </ListItem>
                   <ListItem
@@ -151,7 +171,9 @@ ShallowWrapper {
                         <ListContent
                               style={null}
                         >
+                              Eduward Scissorhands
                                
+                              16
                         </ListContent>
                   </ListItem>
             </List>
@@ -167,25 +189,23 @@ ShallowWrapper {
       "_currentElement": <VideosCard
         onTagAdded={[Function]}
         onVideoRemoved={[Function]}
-        tag={
-                Object {
-                        "fieldValue": "tag01",
-                        "totalCount": 2,
-                      }
-        }
-        tags={
+        tag="tag01"
+        videos={
                 Array [
                         Object {
+                          "duration": 1,
                           "fieldValue": "tag01",
-                          "totalCount": 2,
+                          "title": "Curse Of Black Pearl",
                         },
                         Object {
+                          "duration": 2,
                           "fieldValue": "tag02",
-                          "totalCount": 4,
+                          "title": "Sleepy Hollow",
                         },
                         Object {
+                          "duration": 16,
                           "fieldValue": "tag03",
-                          "totalCount": 6,
+                          "title": "Eduward Scissorhands",
                         },
                       ]
         }
@@ -200,22 +220,22 @@ ShallowWrapper {
         "props": Object {
           "onTagAdded": [Function],
           "onVideoRemoved": [Function],
-          "tag": Object {
-            "fieldValue": "tag01",
-            "totalCount": 2,
-          },
-          "tags": Array [
+          "tag": "tag01",
+          "videos": Array [
             Object {
+              "duration": 1,
               "fieldValue": "tag01",
-              "totalCount": 2,
+              "title": "Curse Of Black Pearl",
             },
             Object {
+              "duration": 2,
               "fieldValue": "tag02",
-              "totalCount": 4,
+              "title": "Sleepy Hollow",
             },
             Object {
+              "duration": 16,
               "fieldValue": "tag03",
-              "totalCount": 6,
+              "title": "Eduward Scissorhands",
             },
           ],
         },
@@ -224,16 +244,19 @@ ShallowWrapper {
           "textInput": "",
           "videos": Array [
             Object {
+              "duration": 1,
               "fieldValue": "tag01",
-              "totalCount": 2,
+              "title": "Curse Of Black Pearl",
             },
             Object {
+              "duration": 2,
               "fieldValue": "tag02",
-              "totalCount": 4,
+              "title": "Sleepy Hollow",
             },
             Object {
+              "duration": 16,
               "fieldValue": "tag03",
-              "totalCount": 6,
+              "title": "Eduward Scissorhands",
             },
           ],
         },
@@ -295,9 +318,16 @@ ShallowWrapper {
                                                   onClick={[Function]}
                                         />
                                         <ListContent
-                                                  style={null}
+                                                  style={
+                                                            Object {
+                                                                      "color": "blue",
+                                                                      "fontWeight": "700",
+                                                                    }
+                                                  }
                                         >
+                                                  Curse Of Black Pearl
                                                    
+                                                  1
                                         </ListContent>
                               </ListItem>
                               <ListItem
@@ -310,7 +340,9 @@ ShallowWrapper {
                                         <ListContent
                                                   style={null}
                                         >
+                                                  Sleepy Hollow
                                                    
+                                                  2
                                         </ListContent>
                               </ListItem>
                               <ListItem
@@ -323,7 +355,9 @@ ShallowWrapper {
                                         <ListContent
                                                   style={null}
                                         >
+                                                  Eduward Scissorhands
                                                    
+                                                  16
                                         </ListContent>
                               </ListItem>
                     </List>
@@ -370,9 +404,16 @@ ShallowWrapper {
                                                   onClick={[Function]}
                                         />
                                         <ListContent
-                                                  style={null}
+                                                  style={
+                                                            Object {
+                                                                      "color": "blue",
+                                                                      "fontWeight": "700",
+                                                                    }
+                                                  }
                                         >
+                                                  Curse Of Black Pearl
                                                    
+                                                  1
                                         </ListContent>
                               </ListItem>
                               <ListItem
@@ -385,7 +426,9 @@ ShallowWrapper {
                                         <ListContent
                                                   style={null}
                                         >
+                                                  Sleepy Hollow
                                                    
+                                                  2
                                         </ListContent>
                               </ListItem>
                               <ListItem
@@ -398,7 +441,9 @@ ShallowWrapper {
                                         <ListContent
                                                   style={null}
                                         >
+                                                  Eduward Scissorhands
                                                    
+                                                  16
                                         </ListContent>
                               </ListItem>
                     </List>
@@ -418,25 +463,23 @@ ShallowWrapper {
   "unrendered": <VideosCard
     onTagAdded={[Function]}
     onVideoRemoved={[Function]}
-    tag={
-        Object {
-            "fieldValue": "tag01",
-            "totalCount": 2,
-          }
-    }
-    tags={
+    tag="tag01"
+    videos={
         Array [
             Object {
+              "duration": 1,
               "fieldValue": "tag01",
-              "totalCount": 2,
+              "title": "Curse Of Black Pearl",
             },
             Object {
+              "duration": 2,
               "fieldValue": "tag02",
-              "totalCount": 4,
+              "title": "Sleepy Hollow",
             },
             Object {
+              "duration": 16,
               "fieldValue": "tag03",
-              "totalCount": 6,
+              "title": "Eduward Scissorhands",
             },
           ]
     }

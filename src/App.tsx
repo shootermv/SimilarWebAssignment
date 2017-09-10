@@ -86,7 +86,8 @@ class App extends React.Component<any, any> {
         <Segment vertical>
           <Grid padded style={{ justifyContent: "space-around" }}>
             <div>
-              <VideosCard tags={videos}
+              <VideosCard
+                videos={videos}
                 tag={this.state.currentVideo && this.state.currentVideo.fieldValue}
                 onTagAdded={(e) => this.addTag(e)}
                 onVideoRemoved={(e, idx) => this.removeVideo(idx)} />
