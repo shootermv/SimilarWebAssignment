@@ -1,12 +1,12 @@
 import { shallow } from "enzyme";
 import "jest";
 import * as React from "react";
-import TagsCard from "./TagsCard";
+import VideosCard from "./VideosCard";
 
 import { List } from "semantic-ui-react";
 
 
-describe("TagsCard component", () => {
+describe("VideosCard component", () => {
 
 
   it("should list all the tags", () => {
@@ -16,7 +16,7 @@ describe("TagsCard component", () => {
       { fieldValue: "tag03", totalCount: 6 },
     ] as any[];
 
-    const wrapper = shallow(<TagsCard
+    const wrapper = shallow(<VideosCard
       tags={tags} tag={tags[0]}
       onTagAdded={() => console.log("")}
       onVideoRemoved={() => console.log("")} />);
@@ -31,7 +31,7 @@ describe("TagsCard component", () => {
       { fieldValue: "tag03", totalCount: 6 },
     ] as any[];
 
-    const wrapper = shallow(<TagsCard
+    const wrapper = shallow(<VideosCard
       tags={tags} tag={tags[0]}
       onTagAdded={() => console.log("")}
       onVideoRemoved={() => console.log("")} />);

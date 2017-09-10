@@ -2,17 +2,17 @@ import * as React from "react";
 import { Card, List, Input, Button } from "semantic-ui-react";
 
 
-interface TagsCardProps extends React.HTMLProps<HTMLDivElement> {
+interface VideosCardProps extends React.HTMLProps<HTMLDivElement> {
   tags: any[];
   tag?: string;
   onTagAdded(e: any): void;
   onVideoRemoved(e: any, idx: number): void;
 }
 
-export default class TagsCard extends React.Component<TagsCardProps, any> {
+export default class VideosCard extends React.Component<VideosCardProps, any> {
   public state: any;
   public inpt: any;
-  constructor(props: TagsCardProps) {
+  constructor(props: VideosCardProps) {
     super(props);
     this.state = { textInput: "" };
   }

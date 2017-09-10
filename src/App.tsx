@@ -4,7 +4,7 @@ import './App.css';
 import YouTube from "react-youtube";
 import { Utils } from "./utils/utils";
 import PlayerTitle from "./PlayerTitle";
-import TagsCard from "./TagsCard";
+import VideosCard from "./VideosCard";
 import { Grid, Container, Segment, Card } from "semantic-ui-react";
 
 
@@ -86,7 +86,7 @@ class App extends React.Component<any, any> {
         <Segment vertical>
           <Grid padded style={{ justifyContent: "space-around" }}>
             <div>
-              <TagsCard tags={videos}
+              <VideosCard tags={videos}
                 tag={this.state.currentVideo && this.state.currentVideo.fieldValue}
                 onTagAdded={(e) => this.addTag(e)}
                 onVideoRemoved={(e, idx) => this.removeVideo(idx)} />
@@ -97,11 +97,8 @@ class App extends React.Component<any, any> {
                   <Card.Header>
                     {this.state.currentVideo && this.state.currentVideo.title}
                   </Card.Header>
-
                   <Card.Description>
-
                     {this.renderPlayer(this.state.currentVideo)}
-
                   </Card.Description>
                 </Card.Content>
               </Card>
